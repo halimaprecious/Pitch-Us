@@ -1,6 +1,4 @@
 one_env/
 __pycache__/
 *.pyc
-migrations/
 instance/
-*.db
