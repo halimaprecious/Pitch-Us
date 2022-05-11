@@ -40,33 +40,33 @@ def create_app():
     # mail.init_app(app)
 
     #configure uploadset
-    # configure_uploads(app,photos)
+    configure_uploads(app,photos)
 
     #registering blueprint
-    # from .views import views
-    # app.register_blueprint(views,url_prefix="/")
+    from .views import views
+    app.register_blueprint(views,url_prefix="/")
 
-    # from .auth import auth
-    # app.register_blueprint(auth,url_prefix="/")
+    from .auth import auth
+    app.register_blueprint(auth,url_prefix="/")
 
-    # from .models import User,Pitch, Comment,Like
+    from .models import User,Pitch, Comment,Like
 
 
-    # create_database(app)
+    create_database(app)
 
-    # login_manager = LoginManager()
-    # login_manager.login_view = "auth.login" # redirects to login page
-    # login_manager.init_app(app)
+    login_manager = LoginManager()
+    login_manager.login_view = "auth.login" # redirects to login page
+    login_manager.init_app(app)
 
     #access user
-#     @login_manager.user_loader
-#     def load_user(id):
-#         return User.query.get(int(id))
+    @login_manager.user_loader
+    def load_user(id):
+        return User.query.get(int(id))
 
-#     return app
+    return app
 
-# def create_database(app):
-#     if not path.exists("app/"+DB_NAME):
-#         db.create_all(app=app)
-#         print("Created database!")
+def create_database(app):
+    if not path.exists("app/"+DB_NAME):
+        db.create_all(app=app)
+        print("Created database!")
    
