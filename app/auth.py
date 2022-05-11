@@ -54,7 +54,7 @@ def signup():
          db.session.add(new_user)
          db.session.commit()
 
-         mail_message("Welcome to PitchUs","email/welcome_user",new_user.email,user=new_user)
+         # mail_message("Welcome to PitchUs","email/welcome_user",new_user.email,user=new_user)
 
          login_user(new_user,remember=True)
          flash('User created!')

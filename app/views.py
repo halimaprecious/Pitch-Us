@@ -11,11 +11,8 @@ views = Blueprint("views",__name__)
 @login_required
 def home():
    pitches = Pitch.query.all()
-   cheezy = Pitch.query.filter_by(category='cheezy').all()
-   business_idea = Pitch.query.filter_by(category='idea').all()
-   poetic = Pitch.query.filter_by(category='poetic').all()
-   finance = Pitch.query.filter_by(category='finances').all()
-   return render_template('home.html',user = current_user.username,pitches=pitches, cheezy=cheezy,poetic =poetic,finance=finance, business_idea=business_idea)
+  
+   return render_template('home.html',user = current_user.username,pitches=pitches)
 
 @views.route('/pitch/',methods=['GET','POST'])
 @login_required

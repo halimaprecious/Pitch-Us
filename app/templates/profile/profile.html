@@ -23,7 +23,7 @@
             <img src="{{url_for('static',filename=user.profile_pic_path)}}" alt="" class="img-thumbnail">
             {%else%}
             <p>No profile picture</p>
-            {% endif %} -->
+            {% endif %} 
             <!-- Update photo -->
             {% if user == current_user %}
             <form  action="{{url_for('views.update_pic',username=user.username)}}" method="post" enctype = "multipart/form-data">

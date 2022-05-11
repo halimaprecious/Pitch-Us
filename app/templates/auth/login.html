@@ -1,10 +1,13 @@
 {% extends 'base.html' %}
 {% block title %}login{% endblock %}
+{% block styles %}
+<link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+{% endblock %}
 
 {% block content %}
 
-<div class="container">
-<form method="POST">
+<div class="container log">
+<form method="POST"class="login">
     <h3 align="center">Login</h3>
     <div class="form-group">
         <label for="email">Email Address</label>
@@ -15,7 +18,7 @@
         <br>
         <button class="btn btn-success"type="submit">Sign in</button>
     </div> <br>
-    <p> Don't have an account? <a href="{{url_for('auth.signup')}}"> Sign up here</a></p>
+    <p align="center"> Don't have an account? <a href="{{url_for('auth.signup')}}"class="text-white"> Sign up here</a></p>
 </form>
 </div>
 {% endblock %}

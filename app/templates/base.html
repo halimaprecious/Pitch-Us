@@ -19,7 +19,7 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar"><span
                     class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbar">
-                <a href="/"class="logo">PITCH-US</a>
+                <a href="/"class="logo">PITCH~US</a>
                 <div class="navbar-nav ms-auto">
                     <a href="/" class="nav-item nav-link ">Home</a>
                     {% if current_user.is_authenticated %}
@@ -28,8 +28,8 @@
                         class="nav-item nav-link">Profile</a>
                     <a href="{{url_for('auth.logout')}}" class="nav-item nav-link">Logout</a>
                     {% else %}
-                    <a href="{{url_for('auth.login')}}" class="nav-item nav-link">Sign in</a>
-                    <a href="{{url_for('auth.signup')}}" class="nav-item nav-link">Sign Up</a>
+                    <a href="{{url_for('auth.login')}}" class="nav-item nav-link">SignIn</a>
+                    <a href="{{url_for('auth.signup')}}" class="nav-item nav-link">SignUp</a>
                     {% endif%}
                 </div>
             </div>
