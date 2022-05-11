@@ -7,65 +7,70 @@
 
 
 {% block content %}
-{% block header%} 
+{% block header%}
+<div">
+    <a href="/pitch/"><button type="button" class="btn btn-success btn-lg">
+            Add Pitch
+        </button></a>
         <h2 align="center">One wise minute of impact! </h2> <br>
-{%endblock %}
-<div class="container" id="pitches">
-    {% for pitch in pitches %}
-    <div class="col-md-10">
-    <div class="card">
-        <div class="card-header d-flex justify-content-between align-items-center">
-            <a href="/pitch/{{pitch.user.username}}">Author: {{pitch.user.username}}</a>
-            <div>{{pitch.likes|length}}
+    </div>
+    {%endblock %}
+    <div class="container" id="pitches">
+        {% for pitch in pitches %}
+        <div class="col-md-10">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <a href="/pitch/{{pitch.user.username}}">Author: {{pitch.user.username}}</a>
+                    <div>{{pitch.likes|length}}
 
-                {% if user.id in pitch.likes|map(attribute="author")|list %}
-               <a href="/like/{{pitch.id}}"><i class="fas fa-thumbs-up"></i></a>
-                {% else %}
-                <a href="/like/{{pitch.id}}"><i class="far fa-thumbs-up"></i></a>
-                {% endif %}
-            </div>
-        </div>
-        <div class="card-title">
-        </div>
-        <div class="card-body">
-            <div class="card-text">{{pitch.text}}</div><br>
-            <div class="collapse" id="comments-{{pitch.id}}">
-                <div class="card">
-                    <div class="card-body" id="comments-expanded-{{pitch.id}}">
-                        {% for comment in pitch.comments %}
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div>
-                                <a href="/pitch/{{comment.user.username}}">{{comment.user.username}}</a>:
-                                {{comment.text}}
-                            </div>
-                            <div>
-                                <small class="text-muted">{{comment.date_created}}</small>
-                            </div>
-                        </div>
-
-                        {%endfor%}
+                        {% if user.id in pitch.likes|map(attribute="author")|list %}
+                        <a href="/like/{{pitch.id}}"><i class="fas fa-thumbs-up"></i></a>
+                        {% else %}
+                        <a href="/like/{{pitch.id}}"><i class="far fa-thumbs-up"></i></a>
+                        {% endif %}
                     </div>
                 </div>
-            </div>
-            <p class="card-text">
-                {% if pitch.comments|length > 0 %}
-                <a data-bs-toggle="collapse" href="#comments-{{pitch.id}}" role="button">
-                    <small>View {{pitch.comments|length}} Comments</small>
-                </a>
-                {% else %}
-                <small class="text-muted">Leave a comment</small>
-                {% endif %}
-            </p>
-            <form class="input-group mb-3" method="POST" action="/comment/{{pitch.id}}">
-                <input type="text" id="text" name="text" class="form-control" placeholder="Write a comment">
-                <button type="submit" class="btn btn-warning">Comment</button>
-            </form>
-        </div>
-        <div class="card-footer text-muted"> Post Date: {{pitch.date_created}}</div>
-    </div>
-    </div>
-    <br>
-    {% endfor %}
-</div>
+                <div class="card-title">
+                </div>
+                <div class="card-body">
+                    <div class="card-text">{{pitch.text}}</div><br>
+                    <div class="collapse" id="comments-{{pitch.id}}">
+                        <div class="card">
+                            <div class="card-body" id="comments-expanded-{{pitch.id}}">
+                                {% for comment in pitch.comments %}
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <a href="/pitch/{{comment.user.username}}">{{comment.user.username}}</a>:
+                                        {{comment.text}}
+                                    </div>
+                                    <div>
+                                        <small class="text-muted">{{comment.date_created}}</small>
+                                    </div>
+                                </div>
 
-{% endblock %}
+                                {%endfor%}
+                            </div>
+                        </div>
+                    </div>
+                    <p class="card-text">
+                        {% if pitch.comments|length > 0 %}
+                        <a data-bs-toggle="collapse" href="#comments-{{pitch.id}}" role="button">
+                            <small>View {{pitch.comments|length}} Comments</small>
+                        </a>
+                        {% else %}
+                        <small class="text-muted">Leave a comment</small>
+                        {% endif %}
+                    </p>
+                    <form class="input-group mb-3" method="POST" action="/comment/{{pitch.id}}">
+                        <input type="text" id="text" name="text" class="form-control" placeholder="Write a comment">
+                        <button type="submit" class="btn btn-warning">Comment</button>
+                    </form>
+                </div>
+                <div class="card-footer text-muted"> Post Date: {{pitch.date_created}}</div>
+            </div>
+        </div>
+        <br>
+        {% endfor %}
+    </div>
+
+    {% endblock %}

@@ -28,7 +28,7 @@ def pitch():
          pitch = Pitch(category=category,text=text,author = current_user.id)
          db.session.add(pitch)
          db.session.commit()
-         flash('Pitch Sent!',category = 'success')
+         # flash('Pitch Sent!',category = 'success')
 
          return redirect(url_for('views.home'))
 
