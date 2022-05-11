@@ -1,11 +1,11 @@
 
-# from .models import Pitch,User,Comment,Like
-# from flask import Blueprint, flash, render_template, request,redirect, session,url_for
-# from flask_login import login_required,current_user
-# from .forms import UpdateProfile,PitchForm
-# from . import db,photos
+from .models import Pitch,User,Comment,Like
+from flask import Blueprint, flash, render_template, request,redirect, session,url_for
+from flask_login import login_required,current_user
+from .forms import UpdateProfile,PitchForm
+from . import db,photos
 
-# views = Blueprint("views",__name__)
+views = Blueprint("views",__name__)
 
 # @views.route('/')
 # @login_required
