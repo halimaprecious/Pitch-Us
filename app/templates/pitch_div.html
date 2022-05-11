@@ -8,16 +8,17 @@
 
 {% block content %}
 {% block header%}
-<div">
-    <a href="/pitch/"><button type="button" class="btn btn-success btn-lg">
+    <div class="text-white">
+        <h3 align="center">Welcome to PitchUs. Feel free to leave a pitch on anything from business ideas, products,finacial to poetic pitches and get feedback from our community. Your one minute counts. </h3><span><small>~One wise minute of impact!~</small></span> <br><br>
+        <a href="/pitch/"><button type="button" class="btn btn-success btn-lg">
             Add Pitch
         </button></a>
-        <h2 align="center">One wise minute of impact! </h2> <br>
-    </div>
+    </div> <br>
     {%endblock %}
     <div class="container" id="pitches">
         {% for pitch in pitches %}
-        <div class="col-md-10">
+    
+        <div class="col-md-8">
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <a href="/pitch/{{pitch.user.username}}">Author: {{pitch.user.username}}</a>
@@ -71,6 +72,7 @@
         </div>
         <br>
         {% endfor %}
+       
     </div>
 
     {% endblock %}
