@@ -1,0 +1,3 @@
+Hello {{user.username}}
+Welcome to Pitch~Us
+You created an account with us and we want ot welcome you to our space.Pitch us with your one minute pitch and get feedback from the community.
