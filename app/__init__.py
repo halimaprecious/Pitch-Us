@@ -13,7 +13,7 @@ db =SQLAlchemy()
 DB_NAME = "database.db"
 migrate = Migrate()
 photos =UploadSet('photos',IMAGES)
-# mail = Mail()
+mail = Mail()
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'super secret'
@@ -37,7 +37,7 @@ def create_app():
     bootstrap.init_app(app)
     db.init_app(app)
     migrate.init_app(app,db)
-    # mail.init_app(app)
+    mail.init_app(app)
 
     #configure uploadset
     configure_uploads(app,photos)
